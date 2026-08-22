@@ -137,6 +137,86 @@
     color:var(--ink-soft);
     padding:20px 0;
   }
+  .disclaimer{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    margin-bottom:36px;
+    padding-bottom:24px;
+    border-bottom:1px solid var(--line);
+  }
+  .section-block{
+    margin-bottom:44px;
+  }
+  .section-block h2{
+    font-size:17px;
+    font-weight:600;
+    margin:0 0 14px;
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+  }
+  .section-block h2 .num{
+    font-family:"Noto Sans Mono","Courier New",monospace;
+    font-size:12px;
+    color:var(--accent);
+    letter-spacing:0.05em;
+  }
+  dl.glossary{
+    margin:0;
+  }
+  dl.glossary > div{
+    display:flex;
+    gap:14px;
+    padding:10px 0;
+    border-bottom:1px dashed var(--line);
+    font-size:14.5px;
+  }
+  dl.glossary > div:last-child{
+    border-bottom:none;
+  }
+  dl.glossary dt{
+    flex-shrink:0;
+    width:64px;
+    font-weight:600;
+    font-family:"Noto Sans Mono","Courier New",monospace;
+    font-size:13px;
+    color:var(--accent);
+  }
+  dl.glossary dd{
+    margin:0;
+    color:var(--ink);
+  }
+  .subgroup{
+    margin-top:24px;
+  }
+  .subgroup h3{
+    font-size:14.5px;
+    font-weight:600;
+    margin:0 0 10px;
+    color:var(--ink-soft);
+  }
+  .extra-note{
+    font-size:14.5px;
+    margin-bottom:24px;
+    padding-bottom:20px;
+    border-bottom:1px dashed var(--line);
+  }
+  .extra-note:last-child{
+    border-bottom:none;
+    margin-bottom:0;
+    padding-bottom:0;
+  }
+  .extra-note h3{
+    font-size:15px;
+    font-weight:600;
+    margin:0 0 8px;
+  }
+  .extra-note p{
+    margin:0 0 8px;
+  }
+  .extra-note p:last-child{
+    margin-bottom:0;
+  }
   footer{
     margin-top:60px;
     padding-top:20px;
@@ -157,12 +237,38 @@
     <h1>台北酒店整理 ver.2</h1>
   </header>
 
+  <p class="disclaimer">歡迎補充跟修正。被經紀帶去之前可以知道一下店家在幹嘛。不覺得接S不好，但不想接S的姐妹可以避開特定店家，本名單旨在維護公關權益，不代表任何個人立場。</p>
+
+  <div class="section-block">
+    <h2><span class="num">※</span>名詞解釋</h2>
+    <dl class="glossary">
+      <div><dt>框</dt><dd>買特定一段時間。</dd></div>
+      <div><dt>秀舞</dt><dd>坐在客人身上跳舞磨蹭（制服要脫上衣，制服以外有秀舞的店應該不脫）。</dd></div>
+      <div><dt>S</dt><dd>＝任務＝配＝性交易。</dd></div>
+      <div><dt>洗S</dt><dd>鼓吹公關接S。</dd></div>
+      <div><dt>手工</dt><dd>幫客人打手槍。</dd></div>
+      <div><dt>午場</dt><dd>下午時段開始營業。</dd></div>
+      <div><dt>晚場</dt><dd>只有晚上到凌晨營業。</dd></div>
+    </dl>
+    <div class="subgroup">
+      <dl class="glossary">
+        <div><dt>制服店</dt><dd>有規定統一服裝，尺度最大的店，秀舞要脫衣服，明配會直接點出來，秀舞後可能包含手工服務。但一間制服店裡面也會有尺度小的領檯，或不接S、不秀、不手工的人。接任務比例偏高。</dd></div>
+        <div><dt>制禮</dt><dd>一間店同時有制服、（領檯）、禮服。</dd></div>
+        <div><dt>公主店</dt><dd>定位有點模糊的店。介於制服跟禮服中間。前身可能是現金公主店。接任務比例偏高。</dd></div>
+        <div><dt>砲店</dt><dd>九成以上都要明配的店。</dd></div>
+        <div><dt>禮服店</dt><dd>穿小禮服的店。尺度中等，以看台制（站一排在包廂前面給客人選）為主。</dd></div>
+        <div><dt>便禮</dt><dd>更新：便禮店裡面小姐沒有分類，以帶台制為主≈框店。</dd></div>
+        <div><dt>便服店</dt><dd>外貌條件最高的店。帶台制。同時具有框店的性質。</dd></div>
+        <div><dt>框店</dt><dd>帶台制，不用看台、小姐要留客人就要框。不框就會被帶去看其他桌。框店是根據轉台制度分類，所以可能有禮服/便禮/便服/制服框店（≈公主店）。</dd></div>
+      </dl>
+    </div>
+  </div>
+
   <div class="controls">
     <input type="text" class="search-box" id="searchBox" placeholder="搜尋店名或類型…">
     <div class="filter-chips" id="filterChips">
       <button class="chip active" data-tag="全部">全部</button>
       <button class="chip" data-tag="禮服">禮服</button>
-      <button class="chip" data-tag="便禮">便禮</button>
       <button class="chip" data-tag="便服">便服</button>
       <button class="chip" data-tag="制服">制服</button>
       <button class="chip" data-tag="公主店">公主店</button>
@@ -170,36 +276,35 @@
       <button class="chip" data-tag="午場">午場</button>
       <button class="chip" data-tag="秀舞">秀舞</button>
       <button class="chip" data-tag="威系列">威系列</button>
-      <button class="chip" data-tag="看台">看台</button>
     </div>
   </div>
 
   <ul class="venues" id="venueList">
-    <li data-tags="純制服,秀舞">
+    <li data-tags="純制服">
       <div class="venue-name">皇冠</div>
-      <div class="venue-tags"><span class="tag">純制服</span><span class="tag">秀舞</span></div>
+      <div class="venue-tags"><span class="tag">純制服</span></div>
     </li>
     <li data-tags="禮服">
       <div class="venue-name">皇家</div>
       <div class="venue-tags"><span class="tag">禮服</span></div>
     </li>
-    <li data-tags="制禮,制服,禮服,午場,秀舞">
+    <li data-tags="制禮,制服,禮服,午場">
       <div class="venue-name">金聰</div>
-      <div class="venue-tags"><span class="tag">制禮</span><span class="tag">午場</span><span class="tag">櫥窗選妃</span><span class="tag">秀舞</span></div>
+      <div class="venue-tags"><span class="tag">制禮</span><span class="tag">午場</span></div>
     </li>
-    <li data-tags="制禮,制服,禮服,秀舞">
+    <li data-tags="制禮,制服,禮服">
       <div class="venue-name">豪昇</div>
-      <div class="venue-tags"><span class="tag">制禮</span><span class="tag">秀舞</span></div>
+      <div class="venue-tags"><span class="tag">制禮</span></div>
     </li>
-    <li data-tags="禮服,看台">
+    <li data-tags="禮服">
       <div class="venue-name">龍昇</div>
-      <div class="venue-tags"><span class="tag">禮服</span><span class="tag">看台</span></div>
+      <div class="venue-tags"><span class="tag">禮服</span></div>
     </li>
-    <li data-tags="禮服,看台">
+    <li data-tags="禮服">
       <div class="venue-name">首席</div>
-      <div class="venue-tags"><span class="tag">禮服</span><span class="tag">看台</span></div>
+      <div class="venue-tags"><span class="tag">禮服</span></div>
     </li>
-    <li data-tags="便禮">
+    <li data-tags="便禮,便服,禮服">
       <div class="venue-name">名亨</div>
       <div class="venue-tags"><span class="tag">便禮</span></div>
     </li>
@@ -207,9 +312,9 @@
       <div class="venue-name">名享</div>
       <div class="venue-tags"><span class="tag">公主店≈砲店</span><span class="tag">純明配</span></div>
     </li>
-    <li data-tags="公主店,午場">
+    <li data-tags="公主店">
       <div class="venue-name">鴻欣</div>
-      <div class="venue-tags"><span class="tag">公主店</span><span class="tag">午場</span></div>
+      <div class="venue-tags"><span class="tag">公主店</span></div>
     </li>
     <li data-tags="公主店/店家店,洗S">
       <div class="venue-name">香水</div>
@@ -219,27 +324,27 @@
       <div class="venue-name">世盟百欣</div>
       <div class="venue-tags"><span class="tag">前身公主店，現轉型小框店</span><span class="tag">任務約五成</span><span class="tag">洗秀舞</span></div>
     </li>
-    <li data-tags="純便服,框店">
+    <li data-tags="純便服">
       <div class="venue-name">龍亨</div>
-      <div class="venue-tags"><span class="tag">純便服</span><span class="tag">框店</span></div>
+      <div class="venue-tags"><span class="tag">純便服</span></div>
     </li>
-    <li data-tags="純便服,框店">
+    <li data-tags="純便服">
       <div class="venue-name">巴塞隆納/王牌</div>
-      <div class="venue-tags"><span class="tag">純便服</span><span class="tag">框店</span></div>
+      <div class="venue-tags"><span class="tag">純便服</span></div>
     </li>
-    <li data-tags="便禮,秀舞,框店">
+    <li data-tags="便禮,便服,禮服,秀舞">
       <div class="venue-name">101</div>
-      <div class="venue-tags"><span class="tag">便禮</span><span class="tag">秀舞</span><span class="tag">框店</span></div>
+      <div class="venue-tags"><span class="tag">便禮</span><span class="tag">秀舞</span></div>
     </li>
-    <li data-tags="便禮,洗S傳聞,框店">
+    <li data-tags="便禮,便服,禮服,洗S傳聞">
       <div class="venue-name">金拿督</div>
-      <div class="venue-tags"><span class="tag">便禮</span><span class="tag">洗S傳聞</span><span class="tag">框店</span></div>
+      <div class="venue-tags"><span class="tag">便禮</span><span class="tag">洗S傳聞</span></div>
     </li>
-    <li data-tags="禮服,看台">
+    <li data-tags="禮服">
       <div class="venue-name">金荷</div>
-      <div class="venue-tags"><span class="tag">禮服</span><span class="tag">看台</span></div>
+      <div class="venue-tags"><span class="tag">禮服</span></div>
     </li>
-    <li data-tags="便禮,午場">
+    <li data-tags="便禮,便服,禮服,午場">
       <div class="venue-name">金典</div>
       <div class="venue-tags"><span class="tag">便禮</span><span class="tag">午場</span></div>
     </li>
@@ -255,22 +360,17 @@
       <div class="venue-name">威士登</div>
       <div class="venue-tags"><span class="tag">框店</span><span class="tag">威系列</span><span class="tag">午場三點開始</span></div>
     </li>
-     </li>
-    <li data-tags="制禮,制服,禮服,秀舞">
-      <div class="venue-name">東區209</div>
-      <div class="venue-tags"><span class="tag">制禮</span><span class="tag">秀舞</span></div>
-    </li>
-    <li data-tags="禮服店,禮服,午場一點開始,午場,威系列同集團,威系列,看台">
+    <li data-tags="禮服店,禮服,午場一點開始,午場,威系列同集團,威系列">
       <div class="venue-name">Focus</div>
-      <div class="venue-tags"><span class="tag">禮服店</span><span class="tag">午場一點開始</span><span class="tag">威系列同集團</span><span class="tag">看台</span></div>
+      <div class="venue-tags"><span class="tag">禮服店</span><span class="tag">午場一點開始</span><span class="tag">威系列同集團</span></div>
     </li>
-    <li data-tags="禮服店,禮服,午場,威系列同集團,威系列,看台">
+    <li data-tags="禮服店,禮服,午場,威系列同集團,威系列">
       <div class="venue-name">紫藤</div>
-      <div class="venue-tags"><span class="tag">禮服店</span><span class="tag">午場</span><span class="tag">威系列同集團</span><span class="tag">看台</span></div>
+      <div class="venue-tags"><span class="tag">禮服店</span><span class="tag">午場</span><span class="tag">威系列同集團</span></div>
     </li>
-    <li data-tags="薄紗,秀舞,威系列,公主店,午場">
+    <li data-tags="薄紗,秀舞,威系列">
       <div class="venue-name">豪威</div>
-      <div class="venue-tags"><span class="tag">薄紗</span><span class="tag">公主店</span><span class="tag">秀舞</span><span class="tag">威系列</span></span><span class="tag">午場</span></div>
+      <div class="venue-tags"><span class="tag">薄紗</span><span class="tag">秀舞</span><span class="tag">威系列</span></div>
     </li>
     <li data-tags="禮服">
       <div class="venue-name">威斯汀</div>
@@ -288,15 +388,37 @@
       <div class="venue-name">特蘭斯</div>
       <div class="venue-tags"><span class="tag">禮服</span></div>
     </li>
-    <li data-tags="制禮,制服,禮服,秀舞">
+    <li data-tags="制禮,制服,禮服">
       <div class="venue-name">長春/大老闆</div>
-      <div class="venue-tags"><span class="tag">制禮</span><!DOCTYPE html>
-
- 
-  
-  
+      <div class="venue-tags"><span class="tag">制禮</span></div>
+    </li>
+  </ul>
 
   <p class="empty-msg" id="emptyMsg">沒有符合條件的店家。</p>
+
+  <div class="section-block">
+    <h2><span class="num">※</span>其他補充</h2>
+
+    <div class="extra-note">
+      <h3>1. 比較特別的豪威（統領7樓）</h3>
+      <p>豪威穿的衣服部分接近情趣內衣/比基尼，據說也有人穿禮服，有部分人會秀舞，有些不會，供參考。</p>
+      <p>秀舞為什麼有些人會有些人不會，因為秀舞要坐在客人身上跳性感的舞，有些客人會趁機喇/摸/吸奶/摳花園，比較危險。</p>
+      <p>秀舞一次會多給 600 左右（豪威我不知道確切小姐拿多少），所以沒多多少，很多人不會秀。</p>
+    </div>
+
+    <div class="extra-note">
+      <h3>2. 統領其他店</h3>
+      <p>統領2樓是威晶<br>統領11樓是 Focus（原忠孝麗緻）<br>統領隔壁是紫藤（原敦南麗緻）</p>
+    </div>
+
+    <div class="extra-note">
+      <h3>3. 午場有哪些</h3>
+      <p>我能確定資料正確的有：Focus、紫藤、香閣、金典、金聰。</p>
+      <p>台北午場的店比較少，所以有午場需求的（特別是有門禁的學生、住家裡的人）很多會被往這幾家帶。</p>
+      <p>前兩間最多 Focus 跟紫藤，因為規模比較大（紫藤比 F 小間），所以多數午場會被往這邊帶。規模大的店競爭也會比較大、人員流動率高。</p>
+      <p>香閣外貌條件比較高、金典據說是店家店，所以這兩間相對會比較少帶。</p>
+    </div>
+  </div>
 
   <footer>
     最後更新：2026-08-22
@@ -345,10 +467,3 @@
 </script>
 </body>
 </html>
-</div>
-    </li>
-  </ul>
-
-  <p class="empty-msg" id="emptyMsg">沒有符合條件的店家。</p>
-
-  <footer>
