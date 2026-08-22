@@ -88,6 +88,55 @@
     margin-top:4px;
     letter-spacing:0.02em;
   }
+  .controls{
+    margin-bottom:28px;
+  }
+  .search-box{
+    width:100%;
+    padding:10px 14px;
+    font-size:14.5px;
+    font-family:"Noto Sans TC","PingFang TC",sans-serif;
+    border:1px solid var(--line);
+    border-radius:6px;
+    background:#f6f4ee;
+    color:var(--ink);
+    margin-bottom:14px;
+  }
+  .search-box:focus{
+    outline:none;
+    border-color:var(--accent);
+  }
+  .filter-chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .chip{
+    font-family:"Noto Sans Mono","Courier New",monospace;
+    font-size:11.5px;
+    letter-spacing:0.02em;
+    padding:5px 12px;
+    border-radius:14px;
+    border:1px solid var(--line);
+    background:transparent;
+    color:var(--ink-soft);
+    cursor:pointer;
+  }
+  .chip:hover{
+    border-color:var(--accent);
+    color:var(--accent);
+  }
+  .chip.active{
+    background:var(--accent);
+    border-color:var(--accent);
+    color:#f2ece4;
+  }
+  .empty-msg{
+    display:none;
+    font-size:13.5px;
+    color:var(--ink-soft);
+    padding:20px 0;
+  }
   footer{
     margin-top:60px;
     padding-top:20px;
@@ -108,126 +157,182 @@
     <h1>台北酒店整理 ver.2</h1>
   </header>
 
-  <ul class="venues">
-    <li>
+  <div class="controls">
+    <input type="text" class="search-box" id="searchBox" placeholder="搜尋店名或類型…">
+    <div class="filter-chips" id="filterChips">
+      <button class="chip active" data-tag="全部">全部</button>
+      <button class="chip" data-tag="禮服">禮服</button>
+      <button class="chip" data-tag="便服">便服</button>
+      <button class="chip" data-tag="制服">制服</button>
+      <button class="chip" data-tag="公主店">公主店</button>
+      <button class="chip" data-tag="框店">框店</button>
+      <button class="chip" data-tag="午場">午場</button>
+      <button class="chip" data-tag="秀舞">秀舞</button>
+      <button class="chip" data-tag="威系列">威系列</button>
+    </div>
+  </div>
+
+  <ul class="venues" id="venueList">
+    <li data-tags="純制服">
       <div class="venue-name">皇冠</div>
       <div class="venue-tags"><span class="tag">純制服</span></div>
     </li>
-    <li>
+    <li data-tags="禮服">
       <div class="venue-name">皇家</div>
       <div class="venue-tags"><span class="tag">禮服</span></div>
     </li>
-    <li>
+    <li data-tags="制禮,制服,禮服,午場">
       <div class="venue-name">金聰</div>
       <div class="venue-tags"><span class="tag">制禮</span><span class="tag">午場</span></div>
     </li>
-    <li>
+    <li data-tags="制禮,制服,禮服">
       <div class="venue-name">豪昇</div>
       <div class="venue-tags"><span class="tag">制禮</span></div>
     </li>
-    <li>
+    <li data-tags="禮服">
       <div class="venue-name">龍昇</div>
       <div class="venue-tags"><span class="tag">禮服</span></div>
     </li>
-     <li>
+    <li data-tags="禮服">
       <div class="venue-name">首席</div>
       <div class="venue-tags"><span class="tag">禮服</span></div>
     </li>
-    <li>
+    <li data-tags="便禮,便服,禮服">
       <div class="venue-name">名亨</div>
       <div class="venue-tags"><span class="tag">便禮</span></div>
     </li>
-    <li>
+    <li data-tags="公主店≈砲店,純明配">
       <div class="venue-name">名享</div>
       <div class="venue-tags"><span class="tag">公主店≈砲店</span><span class="tag">純明配</span></div>
     </li>
-    <li>
+    <li data-tags="公主店">
       <div class="venue-name">鴻欣</div>
       <div class="venue-tags"><span class="tag">公主店</span></div>
     </li>
-    <li>
+    <li data-tags="公主店/店家店,洗S">
       <div class="venue-name">香水</div>
       <div class="venue-tags"><span class="tag">公主店/店家店</span><span class="tag">洗S</span></div>
     </li>
-    <li>
+    <li data-tags="前身公主店，現轉型小框店,任務約五成,洗秀舞,秀舞">
       <div class="venue-name">世盟百欣</div>
       <div class="venue-tags"><span class="tag">前身公主店，現轉型小框店</span><span class="tag">任務約五成</span><span class="tag">洗秀舞</span></div>
     </li>
-    <li>
+    <li data-tags="純便服">
       <div class="venue-name">龍亨</div>
       <div class="venue-tags"><span class="tag">純便服</span></div>
     </li>
-    <li>
+    <li data-tags="純便服">
       <div class="venue-name">巴塞隆納/王牌</div>
       <div class="venue-tags"><span class="tag">純便服</span></div>
     </li>
-    <li>
+    <li data-tags="便禮,便服,禮服,秀舞">
       <div class="venue-name">101</div>
       <div class="venue-tags"><span class="tag">便禮</span><span class="tag">秀舞</span></div>
     </li>
-    <li>
+    <li data-tags="便禮,便服,禮服,洗S傳聞">
       <div class="venue-name">金拿督</div>
       <div class="venue-tags"><span class="tag">便禮</span><span class="tag">洗S傳聞</span></div>
     </li>
-    <li>
+    <li data-tags="禮服">
       <div class="venue-name">金荷</div>
       <div class="venue-tags"><span class="tag">禮服</span></div>
     </li>
-    <li>
+    <li data-tags="便禮,便服,禮服,午場">
       <div class="venue-name">金典</div>
       <div class="venue-tags"><span class="tag">便禮</span><span class="tag">午場</span></div>
     </li>
-    <li>
+    <li data-tags="禮服">
       <div class="venue-name">新濠</div>
       <div class="venue-tags"><span class="tag">禮服</span></div>
     </li>
-    <li>
+    <li data-tags="框店,威系列">
       <div class="venue-name">威晶</div>
       <div class="venue-tags"><span class="tag">框店</span><span class="tag">威系列</span></div>
     </li>
-    <li>
+    <li data-tags="框店,威系列,午場三點開始,午場">
       <div class="venue-name">威士登</div>
       <div class="venue-tags"><span class="tag">框店</span><span class="tag">威系列</span><span class="tag">午場三點開始</span></div>
     </li>
-    <li>
+    <li data-tags="禮服店,禮服,午場一點開始,午場,威系列同集團,威系列">
       <div class="venue-name">Focus</div>
       <div class="venue-tags"><span class="tag">禮服店</span><span class="tag">午場一點開始</span><span class="tag">威系列同集團</span></div>
     </li>
-    <li>
+    <li data-tags="禮服店,禮服,午場,威系列同集團,威系列">
       <div class="venue-name">紫藤</div>
       <div class="venue-tags"><span class="tag">禮服店</span><span class="tag">午場</span><span class="tag">威系列同集團</span></div>
     </li>
-    <li>
+    <li data-tags="薄紗,秀舞,威系列">
       <div class="venue-name">豪威</div>
       <div class="venue-tags"><span class="tag">薄紗</span><span class="tag">秀舞</span><span class="tag">威系列</span></div>
     </li>
-     <li>
+    <li data-tags="禮服">
       <div class="venue-name">威斯汀</div>
       <div class="venue-tags"><span class="tag">禮服</span></div>
     </li>
-    <li>
+    <li data-tags="框店,午場">
       <div class="venue-name">香閣</div>
       <div class="venue-tags"><span class="tag">框店</span><span class="tag">午場</span></div>
     </li>
-    <li>
+    <li data-tags="禮服">
       <div class="venue-name">百達</div>
       <div class="venue-tags"><span class="tag">禮服</span></div>
     </li>
-    <li>
+    <li data-tags="禮服">
       <div class="venue-name">特蘭斯</div>
       <div class="venue-tags"><span class="tag">禮服</span></div>
     </li>
-    <li>
+    <li data-tags="制禮,制服,禮服">
       <div class="venue-name">長春/大老闆</div>
       <div class="venue-tags"><span class="tag">制禮</span></div>
     </li>
   </ul>
+
+  <p class="empty-msg" id="emptyMsg">沒有符合條件的店家。</p>
 
   <footer>
     最後更新：2026-08-22
   </footer>
 
 </div>
+
+<script>
+  const searchBox = document.getElementById('searchBox');
+  const chips = document.querySelectorAll('.chip');
+  const items = document.querySelectorAll('#venueList li');
+  const emptyMsg = document.getElementById('emptyMsg');
+  let activeTag = '全部';
+
+  function applyFilter(){
+    const query = searchBox.value.trim().toLowerCase();
+    let visibleCount = 0;
+
+    items.forEach(li => {
+      const name = li.querySelector('.venue-name').textContent.toLowerCase();
+      const tags = (li.dataset.tags || '').toLowerCase();
+      const matchesTag = activeTag === '全部' || tags.includes(activeTag.toLowerCase());
+      const matchesSearch = query === '' || name.includes(query) || tags.includes(query);
+
+      if(matchesTag && matchesSearch){
+        li.style.display = '';
+        visibleCount++;
+      } else {
+        li.style.display = 'none';
+      }
+    });
+
+    emptyMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+
+  searchBox.addEventListener('input', applyFilter);
+
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      activeTag = chip.dataset.tag;
+      applyFilter();
+    });
+  });
+</script>
 </body>
 </html>
-
