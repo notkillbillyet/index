@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#eeece4;
+    --paper:#efefef;
     --ink:#2b2a26;
     --ink-soft:#5c594f;
     --line:#c9c4b4;
